@@ -1,0 +1,33 @@
+extends ../shared/template
+block content
+  .row
+    form(class='form-inline' role='form', method='post', action='/treasure')
+     .form-group
+       label.sr-only(for='name') Name
+       .col-xs-8
+         input.form-control(type='text',name='name', placeholder='Enter Name')
+      .form-group
+        label.sr-only(for='photo') Photo
+        .col-xs-8
+          input.from-control(type='url',id='photo', placeholder='URL')
+      .form-group
+         label.sr-only(for='locaction') Location
+         .col-xs-8
+          input.form-control(type='text', placeholder='Enter Location')
+      .form-group
+         label.sr-only(for=('dif') Difficulty)
+         .col-xs-8
+          select(name='diff')
+            option Easy
+            option Medium
+            option Hard
+      .form-group
+        label.sr-only(for='hindt') Hint
+        .col-sx-8
+        input.form-control(type='text',placeholder='Your Hint')
+      .form-group
+        .col-xs-10
+          button(type='submit', class='btn btn-default') Add Treasure Quest The Pirate!
+
+block scripts
+  script(src='/js/user/init.js')

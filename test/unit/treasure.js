@@ -4,12 +4,12 @@
 'use strict';
 
 var expect    = require('chai').expect,
-    Person    = require('../../app/models/person'),
+    Treasure    = require('../../app/models/treasure'),
     dbConnect = require('../../app/lib/mongodb'),
     cp        = require('child_process'),
     db        = 'template-test';
 
-describe('Person', function(){
+describe('Treasure', function(){
   before(function(done){
     dbConnect(db, function(){
       done();
@@ -23,15 +23,17 @@ describe('Person', function(){
   });
 
   describe('constructor', function(){
-    it('should create a new Person object', function(){
-      var p = new Person();
-      expect(p).to.be.instanceof(Person);
+    it('should create a new Treasure object', function(){
+      var t = {Name: 'Gold', Location:'NYC' , Photo: 'www.google.com' ,Difficulty: 'low', Hint:'Go north !'},
+          gold = new Treasure(t);
+      expect(gold).to.be.instanceof(Treasure);
+
     });
   });
 
   describe('.all', function(){
     it('should get all people', function(done){
-      Person.all(function(err, people){
+      Treasure.all(function(err, people){
         expect(people).to.have.length(2);
         done();
       });
