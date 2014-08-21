@@ -1,0 +1,10 @@
+{
+  "_id":{"$oid":"000000000000000000000001"},
+  "name":"Silver",
+  "location":"New York, New York",
+  "lat":40.7127,
+  "lng":74.0059,
+  "Difficulty":"easy",
+  "hint": "Go Go!",
+  "photo":"http://upload.wikimedia.org/wikipedia/commons/4/47/New_york_times_square-terabass.jpg"
+}

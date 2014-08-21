@@ -1,0 +1,30 @@
+extends ../shared/template
+block content
+  .row
+    .col-xs-12
+      #map
+  .row
+    .col-xs-12
+      table.table.table-striped.table-hover
+        thead
+          tr
+            th Name
+            th Photo
+            th Location
+            th Dificulty
+            th Hint
+            th Find
+        tbody
+          each treasure in treasures
+            tr(data-name=treasure.name, data-lat=treasure.lat, data-lng=treasure.lng)
+              td: a(href='/treasures/#{treasure._id}')= treasure.name
+              td: a(href='/treasures/#{treasure._id}')
+                img(src=treasure.photo)
+              td: a(href='/treasures/#{treasure._id}')= treasure.Location1
+              td: a(href='/treasures/#{treasure._id}')= treasure.diff
+              td: a(href='/treasures/#{treasure._id}')= treasure.hint
+              td= treasure.find ? 'found' : 'Not found'
+              // In this line conditional ( a other way to say if else )  >>> ? = if  : = else
+             // td: treasure.fin
+block scripts
+  script(src='/js/user/treasures.js')

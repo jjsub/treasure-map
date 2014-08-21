@@ -5,7 +5,7 @@ var morgan         = require('morgan'),
     methodOverride = require('express-method-override'),
     less           = require('less-middleware'),
     home           = require('../controllers/home'),
-    treasure       = require('../controllers/treasure');
+    treasures       = require('../controllers/treasures');
 
 module.exports = function(app, express){
   app.use(morgan('dev'));
@@ -15,8 +15,11 @@ module.exports = function(app, express){
   app.use(methodOverride());
 
   app.get('/', home.index);
-  app.get('/treasures/new', treasure.init);
-
+  app.get('/treasures/new', treasures.init);
+  app.get('/treasures', treasures.index);
+  app.post('/treasures', treasures.create);
+  app.put('/treasures',treasures.find);//this is put to update the button find it.
+  app.get('/treasures/:id',treasures.show);
   console.log('Express: Routes Loaded');
 };
 

@@ -1,12 +1,14 @@
 'use strict';
 
-var Mongo = require('mongdb');
+var Mongo = require('mongodb');
 
 function Treasure(t){
   this.name       = t.name;
-  this.Location   ={lat:parseFloat(t.lat), lng:parseFloat(t.lng)};
+  this.Location1   =t.loc;   //{lat:parseFloat(t.lat), lng:parseFloat(t.lng)};
   this.photo      = t.photo;
-  this.difficulty = t.difficulty;
+  this.diff       = t.dificulty;
+  this.hint       = t.hint;
+  this.find       = false;
 }
 
 Object.defineProperty(Treasure, 'collection', {
@@ -22,13 +24,18 @@ Treasure.all = function(cb){
   Treasure.collection.find().toArray(cb);
 };
 
-Treasure.findByld = function(id, cb){
+Treasure.findById = function(id, cb){
   var _id = Mongo.ObjectID(id);
   Treasure.collection.findOne({_id:_id}, function(err, treasure){
-    cb(err,Treasure);
+    console.log('>>>>>>>', treasure);
+    cb(treasure);
   });
 };
 
+Treasure.prototype.toggle = function(cb){//prototyping a fuction that will make the find false declaration go the contrario (true) by  asingning !
+  this.find = !this.find;
+  Treasure.collection.save(this, cb);
+};
 
 module.exports = Treasure;
 

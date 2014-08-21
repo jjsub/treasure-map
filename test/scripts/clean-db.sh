@@ -5,5 +5,5 @@ if [ -z "$1" ] ; then
   exit 1
 fi
 
-mongoimport --jsonArray --drop --db $1 --collection treasure --file ../../db/treasure.json
+mongoimport --jsonArray --drop --db $1 --collection treasures  --file ../../db/treasures.json
 
