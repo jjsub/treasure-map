@@ -21,10 +21,8 @@ block content
             td= treasure.Location1
             td=treasure.hint
     .row
-     form(class='form-inline' role='form', method='put', action='/treasures')
-      .form-group
-        .col-xs-10
-          button(type='submit', class='btn btn-default') Found
+      form(method='post', action='/treasures/#{treasure._id}/found')
+        button(type='submit', class='btn btn-default') Found
 
 block scripts
   script(src='/js/user/treasures.js')

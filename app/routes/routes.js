@@ -18,7 +18,7 @@ module.exports = function(app, express){
   app.get('/treasures/new', treasures.init);
   app.get('/treasures', treasures.index);
   app.post('/treasures', treasures.create);
-  app.put('/treasures',treasures.find);//this is put to update the button find it.
+  app.post('/treasures/:id/found',treasures.find);//this is put to update the button find it.
   app.get('/treasures/:id',treasures.show);
   console.log('Express: Routes Loaded');
 };

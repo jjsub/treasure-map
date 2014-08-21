@@ -24,16 +24,19 @@ Treasure.all = function(cb){
   Treasure.collection.find().toArray(cb);
 };
 
+var _ = require('lodash');
+
 Treasure.findById = function(id, cb){
   var _id = Mongo.ObjectID(id);
-  Treasure.collection.findOne({_id:_id}, function(err, treasure){
-    console.log('>>>>>>>', treasure);
-    cb(treasure);
+  Treasure.collection.findOne({_id:_id}, function(err, obj){
+    cb(_.create(Treasure.prototype, obj));
   });
 };
 
 Treasure.prototype.toggle = function(cb){//prototyping a fuction that will make the find false declaration go the contrario (true) by  asingning !
+  console.log("before",this);
   this.find = !this.find;
+  console.log("after",this);
   Treasure.collection.save(this, cb);
 };
 

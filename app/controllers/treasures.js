@@ -21,6 +21,7 @@ exports.index = function(req, res){
 exports.find = function(req, res){
   Treasure.findById(req.params.id, function(treasure){// this parameter can be call what ever we want
     treasure.toggle(function(){
+      console.log(treasure);
       res.redirect('/treasures');
     });
   });

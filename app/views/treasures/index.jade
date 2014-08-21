@@ -24,7 +24,9 @@ block content
               td: a(href='/treasures/#{treasure._id}')= treasure.diff
               td: a(href='/treasures/#{treasure._id}')= treasure.hint
               td= treasure.find ? 'found' : 'Not found'
-              // In this line conditional ( a other way to say if else )  >>> ? = if  : = else
              // td: treasure.fin
 block scripts
   script(src='/js/user/treasures.js')
+
+
+             // td= treasure.find ? 'found' : 'Not found' // In this line conditional ( a other way to say if else )  >>> ? = if  : = else
