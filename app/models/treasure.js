@@ -34,9 +34,7 @@ Treasure.findById = function(id, cb){
 };
 
 Treasure.prototype.toggle = function(cb){//prototyping a fuction that will make the find false declaration go the contrario (true) by  asingning !
-  console.log("before",this);
   this.find = !this.find;
-  console.log("after",this);
   Treasure.collection.save(this, cb);
 };
 
